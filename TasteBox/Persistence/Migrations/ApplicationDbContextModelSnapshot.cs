@@ -414,7 +414,7 @@ namespace TasteBox.Persistence.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@TASTE-BOX.COM",
                             NormalizedUserName = "ADMIN@TASTE-BOX.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELPW4AQipU/cB5L6wdNHtNJq40oI9v1+F7fOHqPCT7otuG76eOj/fEk4bspMGaXizw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM4SO5hX/JrqPHl7vuWu/MiQHlW4auKZcNMYtwJl2RIbXr5fxOQB3kXZibWhxvU7NQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "55BF92C9EF0249CDA210D85D1A851BC9",
                             TwoFactorEnabled = false,
@@ -453,33 +453,6 @@ namespace TasteBox.Persistence.Migrations
                         .HasFilter("[IsDeleted] = 0");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("TasteBox.Entities.OtpCode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ExpireAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsUsed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OtpCodes");
                 });
 
             modelBuilder.Entity("TasteBox.Entities.Product", b =>
